@@ -46,3 +46,8 @@ class OperationService:
             setattr(operation, field, value)
         self.session.commit()
         return operation
+
+    def delete(self, operation_id):
+        operation = self._get(operation_id)
+        self.session.delete(operation)
+        self.session.commit()
